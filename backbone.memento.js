@@ -1,5 +1,5 @@
 /*!
-Backbone.Memento v0.4.1a
+Backbone.Memento v0.4.2
 
 Copyright (C)2011 Derick Bailey, Muted Solutions, LLC
 Distributed Under MIT License
