@@ -24,7 +24,7 @@ http://github.com/derickbailey/backbone.memento
   // Memento: the public API
   // ----------------------------
   var Memento = function(structure, config){
-    this.version = '0.4.1a';
+    this.version = '0.4.1b';
 
     config = _.extend({ignore: []}, config);
 
