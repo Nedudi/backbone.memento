@@ -1,6 +1,6 @@
 {
   "name": "backbone.memento",
-  "version": "0.4.1-b",
+  "version": "0.4.2",
   "description": "Push and pop for Backbone.js models and collections structures.",
   "main": "backbone.memento.js",
   "scripts": {

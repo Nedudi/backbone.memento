@@ -233,6 +233,12 @@ myModel.get("bar"); // => undefined, as the attribute does not exist
 
 # Release Notes
 
+## v0.4.2
+
+* Setup library as an NPM package
+* Tests are now run with Mocha and Chai (instead of Jasmine)
+* Added [UMD returnExports](https://github.com/umdjs/umd) header
+
 ## v0.4.1a
 
 * No code changes were made. This release is for library upgrades only, for testing purposes
