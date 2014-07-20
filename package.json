@@ -13,16 +13,18 @@
   "keywords": [
     "backbone",
     "undo",
-    "memento",
-    "push",
-    "pop"
+    "memento"
   ],
-  "author": "Derick Bailey",
+  "author": {
+    "name": "Derick Bailey",
+    "email": "derickbailey@gmail.com",
+    "web": "http://derickbailey.lostechies.com"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stayradiated/backbone.memento/issues"
+    "url": "https://github.com/derickbailey/backbone.memento/issues"
   },
-  "homepage": "https://github.com/stayradiated/backbone.memento",
+  "homepage": "https://github.com/derickbailey/backbone.memento",
   "dependencies": {
     "backbone": "^1.1.2",
     "underscore": "^1.6.0"
