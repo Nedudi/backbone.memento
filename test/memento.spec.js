@@ -1,3 +1,6 @@
+var expect = require('chai').expect;
+var AModel = require('./helpers').AModel;
+
 describe("memento", function(){
   beforeEach(function(){
     this.model = new AModel();
@@ -12,7 +15,7 @@ describe("memento", function(){
     it("should reset the model to the memento'd attributes", function(){
       this.model.set({foo: "what?"});
       this.model.restore();
-      expect(this.model.get("foo")).toBe("bar");
+      expect(this.model.get("foo")).to.equal("bar");
     });
   });
 
@@ -23,7 +26,7 @@ describe("memento", function(){
     });
 
     it("should not restore anything", function(){
-      expect(this.model.get("foo")).toBe("bar");
+      expect(this.model.get("foo")).to.equal("bar");
     });
   });
 
@@ -36,7 +39,7 @@ describe("memento", function(){
     it("should not restore anything past the first one", function(){
       this.model.restore();
       this.model.restore();
-      expect(this.model.get("foo")).toBe("bar");
+      expect(this.model.get("foo")).to.equal("bar");
     });
   });
 
@@ -51,7 +54,7 @@ describe("memento", function(){
 
     it("should reset to the previous stored version", function(){
       this.model.restore();
-      expect(this.model.get("foo")).toBe("i dont know");
+      expect(this.model.get("foo")).to.equal("i dont know");
     });
   });
 
@@ -64,7 +67,7 @@ describe("memento", function(){
 
     it("should remove the new attribute", function(){
       this.model.restore();
-      expect(this.model.get("bar")).toBeUndefined();
+      expect(this.model.get("bar")).to.be.undefined;
     });
 
     it("should fire a change event for the removed attribute", function(){
@@ -73,7 +76,7 @@ describe("memento", function(){
         changed = true;
       });
       this.model.restore();
-      expect(changed).toBeTruthy();
+      expect(changed).to.be.ok;
     });
   });
   

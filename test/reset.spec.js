@@ -1,3 +1,6 @@
+var expect = require('chai').expect;
+var AModel = require('./helpers').AModel;
+
 describe("restart all mementos", function(){
   beforeEach(function(){
     this.model = new AModel();
@@ -17,10 +20,10 @@ describe("restart all mementos", function(){
         changed = true;
       });
 
-      expect(this.model.get('foo')).toBe('qux');
+      expect(this.model.get('foo')).to.equal('qux');
       this.model.restart();
-      expect(changed).toBeTruthy();
-      expect(this.model.get('foo')).toBe('bar');
+      expect(changed).to.be.ok;
+      expect(this.model.get('foo')).to.equal('bar');
     });
 
     it("should lose all other save points", function(){
@@ -35,7 +38,7 @@ describe("restart all mementos", function(){
       this.model.restart();
       this.model.restart();
 
-      expect(this.model.get('foo')).toBe('bar'); //should not be qux
+      expect(this.model.get('foo')).to.equal('bar'); //should not be qux
     });
 
     it("should do nothing given no store point", function(){
@@ -47,8 +50,8 @@ describe("restart all mementos", function(){
       });
       this.model.restart();
 
-      expect(this.model.get('foo')).toBe('bar');
-      expect(changed).toBeFalsy();
+      expect(this.model.get('foo')).to.equal('bar');
+      expect(changed).to.not.be.ok;
     });
   });
 });

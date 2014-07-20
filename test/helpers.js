@@ -1,18 +1,22 @@
-AModel = Backbone.Model.extend({
+var _ = require('underscore');
+var Backbone = require('backbone');
+var Memento = require('../backbone.memento');
+
+exports.AModel = Backbone.Model.extend({
   initialize: function(){
     var memento = new Backbone.Memento(this);
     _.extend(this, memento);
   }
 });
 
-ACollection = Backbone.Collection.extend({
+exports.ACollection = Backbone.Collection.extend({
   initialize: function(){
     var memento = new Backbone.Memento(this);
     _.extend(this, memento);
   }
 });
 
-IgnoredAttrsModel = Backbone.Model.extend({
+exports.IgnoredAttrsModel = Backbone.Model.extend({
   initialize: function(){
     var memento = new Backbone.Memento(this, {
       ignore: ["ignoreMe"]

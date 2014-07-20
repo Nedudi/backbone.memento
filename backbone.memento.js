@@ -1,19 +1,30 @@
-// Backbone.Memento v0.4.1a
-//
-// Copyright (C)2011 Derick Bailey, Muted Solutions, LLC
-// Distributed Under MIT License
-//
-// Documentation and Full License Available at:
-// http://github.com/derickbailey/backbone.memento
+/*!
+Backbone.Memento v0.4.1a
 
-Backbone.Memento = (function(Backbone, _){
+Copyright (C)2011 Derick Bailey, Muted Solutions, LLC
+Distributed Under MIT License
+
+Documentation and Full License Available at:
+http://github.com/derickbailey/backbone.memento
+*/
+
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['backbone', 'underscore'], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('backbone'), require('underscore'));
+  } else {
+    factory(root.Backbone, root._);
+  }
+}(this, function (Backbone, _) {
+
   'use strict';
 
   // ----------------------------
   // Memento: the public API
   // ----------------------------
   var Memento = function(structure, config){
-    this.version = "0.4.1a";
+    this.version = '0.4.1a';
 
     config = _.extend({ignore: []}, config);
 
@@ -63,7 +74,7 @@ Backbone.Memento = (function(Backbone, _){
 
     function dropIgnored(attrs, restoreConfig){
       attrs = _.clone(attrs);
-      if (restoreConfig.hasOwnProperty("ignore") && restoreConfig.ignore.length > 0){
+      if (restoreConfig.hasOwnProperty('ignore') && restoreConfig.ignore.length > 0){
         for(var index in restoreConfig.ignore){
           var ignore = restoreConfig.ignore[index];
           delete attrs[ignore];
@@ -118,12 +129,12 @@ Backbone.Memento = (function(Backbone, _){
       var attrs = structure.toJSON();
       attrs = dropIgnored(attrs, config);
       return attrs;
-    }
+    };
 
     this.deserialize = function(previousState, restoreConfig){
       restoreConfig = _.extend({}, config, restoreConfig);
       restoreState(previousState, restoreConfig);
-    }
+    };
       
   };
 
@@ -139,21 +150,23 @@ Backbone.Memento = (function(Backbone, _){
 
     this.push = function(attrs){
       attributeStack.push(attrs);
-    }
+    };
     
     this.pop = function(restoreConfig){
       var oldAttrs = attributeStack.pop();
       return oldAttrs;
-    }
+    };
 
     this.rewind = function(){
       var oldAttrs = attributeStack[0];
       initialize();
       return oldAttrs;
-    }
+    };
 
     initialize();
   };
 
+  Backbone.Memento = Memento;
   return Memento;
-})(Backbone, _);
+
+}));

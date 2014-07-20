@@ -1,3 +1,6 @@
+var expect = require('chai').expect;
+var ACollection = require('./helpers').ACollection;
+
 describe("memento collection", function(){
   beforeEach(function(){
     this.collection = new ACollection();
@@ -12,7 +15,7 @@ describe("memento collection", function(){
     it("should reset the collection to the memento'd models", function(){
       this.collection.reset({foo: "what?"});
       this.collection.restore();
-      expect(this.collection.at(0).get("foo")).toBe("bar");
+      expect(this.collection.at(0).get("foo")).to.equal("bar");
     });
   });
 
@@ -23,7 +26,7 @@ describe("memento collection", function(){
     });
 
     it("should not restore anything", function(){
-      expect(this.collection.at(0).get("foo")).toBe("bar");
+      expect(this.collection.at(0).get("foo")).to.equal("bar");
     });
   });
 
@@ -36,7 +39,7 @@ describe("memento collection", function(){
     it("should not restore anything past the first one", function(){
       this.collection.restore();
       this.collection.restore();
-      expect(this.collection.at(0).get("foo")).toBe("bar");
+      expect(this.collection.at(0).get("foo")).to.equal("bar");
     });
   });
 
@@ -51,7 +54,7 @@ describe("memento collection", function(){
 
     it("should reset to the previous stored version", function(){
       this.collection.restore();
-      expect(this.collection.at(0).get("foo")).toBe("i dont know");
+      expect(this.collection.at(0).get("foo")).to.equal("i dont know");
     });
   });
 
@@ -64,7 +67,7 @@ describe("memento collection", function(){
 
     it("should remove the new model", function(){
       this.collection.restore();
-      expect(this.collection.at(0).get("bar")).toBeUndefined();
+      expect(this.collection.at(0).get("bar")).to.be.undefined;
     });
 
     it("should fire a reset event for the removed model", function(){
@@ -73,7 +76,7 @@ describe("memento collection", function(){
         changed = true;
       });
       this.collection.restore();
-      expect(changed).toBeTruthy();
+      expect(changed).to.be.ok;
     });
   });
 
@@ -86,7 +89,7 @@ describe("memento collection", function(){
     it("should re-add the model to the collection", function(){
       this.collection.remove(this.collection.at(1));
       this.collection.restore();
-      expect(this.collection.at(1).get("bar")).toBe("baz");
+      expect(this.collection.at(1).get("bar")).to.equal("baz");
     });
   });
   

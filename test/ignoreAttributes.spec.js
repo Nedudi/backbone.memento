@@ -1,3 +1,7 @@
+var expect = require('chai').expect;
+var AModel = require('./helpers').IgnoredAttrsModel;
+var IgnoredAttrsModel = require('./helpers').IgnoredAttrsModel;
+
 describe("ignored attributes", function(){
 
   describe("when configuring a model to ignore attributes", function(){
@@ -14,7 +18,7 @@ describe("ignored attributes", function(){
       });
 
       it("should not restore the ignored attribute", function(){
-        expect(this.model.get("ignoreMe")).toBe("something else");
+        expect(this.model.get("ignoreMe")).to.equal("something else");
       });
     });
 
@@ -26,7 +30,7 @@ describe("ignored attributes", function(){
       });
       
       it("should not unset the ignored attribute", function(){
-        expect(this.model.get("ignoreMe")).toBe("a change");
+        expect(this.model.get("ignoreMe")).to.equal("a change");
       });
     });
 
@@ -39,7 +43,7 @@ describe("ignored attributes", function(){
       });
       
       it("should not re-set the ignored attribute", function(){
-        expect(this.model.get("ignoreMe")).toBeUndefined();
+        expect(this.model.get("ignoreMe")).to.be.undefined;
       });
     });
   });
@@ -59,7 +63,7 @@ describe("ignored attributes", function(){
       });
 
       it("should not restore the ignored attribute", function(){
-        expect(this.model.get("ignoreMe")).toBe("something else");
+        expect(this.model.get("ignoreMe")).to.equal("something else");
       });
     });
 
@@ -71,7 +75,7 @@ describe("ignored attributes", function(){
       });
       
       it("should not unset the ignored attribute", function(){
-        expect(this.model.get("ignoreMe")).toBe("a change");
+        expect(this.model.get("ignoreMe")).to.equal("a change");
       });
     });
 
@@ -84,7 +88,7 @@ describe("ignored attributes", function(){
       });
       
       it("should not re-set the ignored attribute", function(){
-        expect(this.model.get("ignoreMe")).toBeUndefined();
+        expect(this.model.get("ignoreMe")).to.be.undefined;
       });
     });
   });

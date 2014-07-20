@@ -1,0 +1,38 @@
+{
+  "name": "backbone.memento",
+  "version": "0.4.1-b",
+  "description": "Push and pop for Backbone.js models and collections structures.",
+  "main": "backbone.memento.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stayradiated/backbone.memento"
+  },
+  "keywords": [
+    "backbone",
+    "undo",
+    "memento",
+    "push",
+    "pop"
+  ],
+  "author": "Derick Bailey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stayradiated/backbone.memento/issues"
+  },
+  "homepage": "https://github.com/stayradiated/backbone.memento",
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "jquery": "^2.1.1",
+    "underscore": "^1.6.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "gulp": "^3.8.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.1",
+    "mocha": "^1.20.1"
+  }
+}
